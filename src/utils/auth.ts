@@ -45,6 +45,7 @@ export const getTokensFromCode = async (code: string): Promise<AuthTokens> => {
     code,
     redirect_uri: REDIRECT_URI,
     client_id: CLIENT_ID,
+    client_secret: import.meta.env.VITE_CLIENT_SECRET, // Add this line
   });
 
   const response = await fetch(TOKEN_ENDPOINT, {
@@ -60,10 +61,10 @@ export const getTokensFromCode = async (code: string): Promise<AuthTokens> => {
   }
 
   const data = await response.json();
-  
+
   // Calculate token expiration time
   const expiresAt = Date.now() + data.expires_in * 1000;
-  
+
   const tokens: AuthTokens = {
     ...data,
     expires_at: expiresAt,
@@ -82,7 +83,7 @@ export const saveTokensToStorage = (tokens: AuthTokens): void => {
 export const getTokensFromStorage = (): AuthTokens | null => {
   const tokensStr = localStorage.getItem('spotify_tokens');
   if (!tokensStr) return null;
-  
+
   return JSON.parse(tokensStr);
 };
 
@@ -90,7 +91,7 @@ export const getTokensFromStorage = (): AuthTokens | null => {
 export const isTokenValid = (): boolean => {
   const tokens = getTokensFromStorage();
   if (!tokens || !tokens.expires_at) return false;
-  
+
   return tokens.expires_at > Date.now();
 };
 

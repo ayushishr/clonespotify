@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={isTokenValid() ? <Navigate to="/dashboard" /> : <LoginPage />} />
         <Route path="/callback" element={<CallbackPage />} />
+      
         <Route 
           path="/dashboard" 
           element={<ProtectedRoute element={<DashboardPage />} />} 
