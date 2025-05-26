@@ -5,7 +5,7 @@ Since as the the Spotify API and documents provide, I need to add users in the u
 A simplified Spotify clone built with React that displays a user's playlists after authentication with the Spotify API.
 
 
-Deployment link ---- https://6941-35-154-68-250.ngrok-free.app/
+Deployment link ---- https://casual-selected-deer.ngrok-free.app/
 
 
 ![WhatsApp Image 2025-05-25 at 12 05 32 PM](https://github.com/user-attachments/assets/b45c0ac0-9d2c-47ea-ae8d-3dce2768e874)
